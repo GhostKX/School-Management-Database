@@ -29,7 +29,7 @@ A Python-based **command-line application** for managing student records using S
 1. Clone or download this repository to your local machine.
 2. Open your terminal or command prompt.
 3. Navigate to the directory where the script is located.
-4. Run the script with the following command:
+4. Run the script with the following command below:
 
 ```bash
 python main.py
@@ -109,4 +109,3 @@ Each function interacts with the SQLite database to ensure **data consistency an
 
 - Developed by **GhostKX**
 - GitHub: **[GhostKX](https://github.com/GhostKX/School-Management-Database)**
-
