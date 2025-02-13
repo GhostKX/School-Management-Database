@@ -1,9 +1,13 @@
+# School Management Database
+
 import sqlite3
 
+# Building connection with the database file
 connection = sqlite3.connect('mydatabase.db')
 
 sql = connection.cursor()
 
+# Building a new table called students to store their data
 sql.execute('CREATE TABLE IF NOT EXISTS students'
             '(id INTEGER PRIMARY KEY AUTOINCREMENT, '
             'first_name TEXT,'
@@ -13,6 +17,8 @@ sql.execute('CREATE TABLE IF NOT EXISTS students'
 
 
 # sql.execute('DROP TABLE students')
+
+# Add function to add a new student
 def add_student():
     print('\n      New Student')
     first_name = input('\nFirst Name: ').capitalize()
@@ -45,6 +51,7 @@ def add_student():
         return
 
 
+# Search function to get the user details by his name
 def get_student_by_name():
     print()
     print('*' * 35)
@@ -79,6 +86,7 @@ def get_student_by_name():
         return
 
 
+# Function to show all students
 def show_all_students():
     sql.execute('SELECT * FROM students')
     all_students = sql.fetchall()
@@ -109,6 +117,7 @@ def show_all_students():
     return all_students
 
 
+# Function to update student grades
 def update_student_grade():
     print()
     print('-' * 35)
@@ -147,6 +156,7 @@ def update_student_grade():
         print('\nError: invalid First Name!')
 
 
+# Function to delete student details
 def delete_student():
     print()
     print('-' * 35)
@@ -175,6 +185,7 @@ def delete_student():
         return
 
 
+# Loop for calling function logic above until user decides to stop
 while True:
     print()
     print('*' * 45)
@@ -188,18 +199,36 @@ while True:
                          '--------------------------\n'
                          'Type in number::: ')
     if student_type == '1':
+
+        # Calling add function to add a new student
         add_student()
+
     elif student_type == '2':
+
+        # Calling get function to get the student details by his name
         get_student_by_name()
+
     elif student_type == '3':
+
+        # Calling show function to show all students
         show_all_students()
+
     elif student_type == '4':
+
+        # Calling update function to update student's grade
         update_student_grade()
+
     elif student_type == '5':
+
+        # Calling delete function to delete the student
         delete_student()
+
     elif student_type == '6':
+
+        # Exiting the program
         connection.close()
         print('\nExit')
         exit(0)
+
     else:
         print('\nError invalid symbol!')
